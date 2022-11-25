@@ -24,6 +24,7 @@ const Sequelize=require('../MODELS/database.js')
 //const Order=require('./orderdatabase.js')
 const Order=require('../MODELS/ordertable.js')
 const orderData=require('../MODELS/orderdatabase.js')
+const path = require('path')
 
 
 //synch
@@ -122,6 +123,7 @@ app.use(async (req,res,next)=>{
         else{
             req.user=getDataOfUser
         }
+        console.log(req.user,'i am hard coded user')
     
     //console.log(req.user)\
     //console.log(req.user)
@@ -132,6 +134,10 @@ app.use(async (req,res,next)=>{
 
 
 app.use(router)
+app.use((req,res,next)=>{
+    //console.log(`FRONTEND/${req.url}`,'req.url...................')
+    res.sendFile(path.join(__dirname,'..',`FRONTEND`,`${req.url}`))
+})
 // //database.sync({sequelize.sync().then(result=>{
 //     // console.log(result);
 //      app.listen(1111,()=>{

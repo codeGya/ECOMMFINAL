@@ -1,0 +1,12 @@
+.image{
+    height: 7rem;
+    width: 7rem;
+}
+/* .cart {
+    display: flex;
+    flex-direction: row;
+} */
+
+.liimages{
+    align-items: center;
+}
